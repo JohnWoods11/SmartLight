@@ -13,28 +13,3 @@ ol,
 ul {
   padding-left: 30px;
 }
-
-.light {
-  border-radius: 50%;
-}
-
-.switch {
-  margin-left: 30px;
-  height: 20px;
-  width: 30px;
-}
-
-.colourselect {
-  margin-left: 30px;
-  height: 20px;
-  width: 30px;
-}
-
-.selectionbox {
-  float: left;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  border-style: solid;
-  border-color: lightgreen;
-  border-radius: 5%;
-}

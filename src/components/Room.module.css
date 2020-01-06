@@ -1,0 +1,23 @@
+.selectionbox {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-color: lightgreen;
+  border-radius: 5%;
+}
+
+.lightContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.light {
+  flex-grow: 1;
+  background-color: yellow;
+  border-radius: 1;
+  border-color: black;
+  border-style: solid;
+  align-content: center;
+  text-align: center;
+}
