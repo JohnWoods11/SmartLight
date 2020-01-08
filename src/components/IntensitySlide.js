@@ -35,11 +35,6 @@ function IntensitySlide(props) {
     }
   };
 
-  let otherfunc = item => {
-    console.log(item);
-    return item;
-  };
-
   return (
     <div className={styles.input}>
       <input

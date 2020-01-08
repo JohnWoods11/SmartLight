@@ -4,7 +4,8 @@ import IntensitySlide from "./IntensitySlide";
 import ColorSelect from "./ColorSelect";
 import LightSwitch from "./LightSwitch";
 import Light from "./Light";
-
+import Themes from "./Themes";
+import ThemeInput from "./ThemeInput";
 import styles from "./Room.module.css";
 
 class Room extends React.Component {
@@ -20,7 +21,10 @@ class Room extends React.Component {
         "#f6b73c"
       ],
       is_on: [false, true, false, true, false, true],
-      intensity: [100, 100, 100, 100, 100, 100]
+      intensity: [100, 100, 100, 100, 100, 100],
+      themes: [],
+      theme_input_name: "Enter theme name here",
+      current_theme: []
     };
   }
 
@@ -28,7 +32,6 @@ class Room extends React.Component {
     let loaded = localStorage.getItem("state");
 
     let new_state = JSON.parse(loaded);
-    console.log(new_state);
 
     this.setState(new_state);
   }
@@ -97,6 +100,33 @@ class Room extends React.Component {
     );
   }
 
+  renderThemes() {
+    return (
+      <Themes
+        themes={this.state.themes}
+        emitChanged={item => {
+          this.themeSlotChanged(item);
+        }}
+      />
+    );
+  }
+
+  RenderThemeInput() {
+    return (
+      <div>
+        <ThemeInput
+          input={this.state.theme_input_name}
+          emitClicked={(item, name) => {
+            this.themeSelectSlotClicked(item, name);
+          }}
+          emitChanged={item => {
+            this.themeSelectSlotChanged(item);
+          }}
+        />
+      </div>
+    );
+  }
+
   slotClicked(i) {
     let is_on = [...this.state.is_on];
     is_on[i] = !is_on[i];
@@ -120,6 +150,46 @@ class Room extends React.Component {
     this.setState({ intensity: intensity });
   }
 
+  themeSlotChanged(item) {
+    let selected_theme = [this.state.themes[item.target.value]];
+    selected_theme = JSON.parse(selected_theme);
+    let current_is_on = [...this.state.is_on];
+    let current_intensity = [...this.state.intensity];
+    let current_colours = [...this.state.colours];
+    current_is_on = selected_theme[1];
+    current_colours = selected_theme[2];
+    current_intensity = selected_theme[3];
+    current_colours = selected_theme[2];
+    this.setState({
+      is_on: current_is_on,
+      intensity: current_intensity,
+      colours: current_colours
+    });
+  }
+
+  themeSelectSlotClicked(item) {
+    this.setThemes(item);
+    let state = JSON.stringify(this.state);
+    localStorage.setItem("state", state);
+  }
+
+  setThemes(item, name) {
+    let themes = [...this.state.themes];
+    let theme = [];
+    theme.push(this.state.theme_input_name);
+    theme.push(this.state.is_on);
+    theme.push(this.state.colours);
+    theme.push(this.state.intensity);
+    let s = JSON.stringify(theme);
+    themes.push(s);
+    this.setState({ themes: themes });
+  }
+
+  themeSelectSlotChanged(item) {
+    let name = item.target.value;
+    this.setState({ theme_input_name: name });
+  }
+
   render() {
     return (
       <div>
@@ -140,6 +210,10 @@ class Room extends React.Component {
           {this.renderSelectionBox(3)}
           {this.renderSelectionBox(4)}
           {this.renderSelectionBox(5)}
+        </div>
+        <div>
+          {this.RenderThemeInput()}
+          {this.renderThemes()}
         </div>
       </div>
     );
