@@ -1,7 +1,12 @@
 .themeinput {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   width: 50%;
+  border-style: solid;
+  border-color: lightgreen;
+  border-radius: 10%;
+  padding: 1%;
 }
 
 .inputbox {

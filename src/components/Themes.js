@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "./Themes.module.css";
-import { element } from "prop-types";
 
 function Themes(props) {
   let handleChange = item => {
@@ -9,6 +8,14 @@ function Themes(props) {
       props.emitChanged(item);
     } else {
       console.log(`emitChanged is null ${props.emitChanged}`);
+    }
+  };
+
+  const handleClick = item => {
+    if (props.emitClicked) {
+      props.emitClicked();
+    } else {
+      console.log(`emitClicked is null ${props.emitClicked}`);
     }
   };
 
@@ -41,9 +48,12 @@ function Themes(props) {
   ));
 
   let list = (
-    <select className={styles.list} size="5" onChange={handleChange}>
-      {makeList}
-    </select>
+    <div className={styles.themes}>
+      <select className={styles.list} size="5" onChange={handleChange}>
+        {makeList}
+      </select>
+      <button onClick={handleClick}>Remove Theme</button>
+    </div>
   );
   return list;
 }
