@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/SmartLight/static/css/main.1ee97827.chunk.css",
+    "main.css": "/SmartLight/static/css/main.3126e216.chunk.css",
     "main.js": "/SmartLight/static/js/main.eb6d59bb.chunk.js",
     "main.js.map": "/SmartLight/static/js/main.eb6d59bb.chunk.js.map",
     "runtime-main.js": "/SmartLight/static/js/runtime-main.b211a061.js",
@@ -8,15 +8,15 @@
     "static/js/2.c13255e9.chunk.js": "/SmartLight/static/js/2.c13255e9.chunk.js",
     "static/js/2.c13255e9.chunk.js.map": "/SmartLight/static/js/2.c13255e9.chunk.js.map",
     "index.html": "/SmartLight/index.html",
-    "precache-manifest.fc0ea13f382da2529b63985ccd4b663a.js": "/SmartLight/precache-manifest.fc0ea13f382da2529b63985ccd4b663a.js",
+    "precache-manifest.4c7456548f205866fce44e4232809d43.js": "/SmartLight/precache-manifest.4c7456548f205866fce44e4232809d43.js",
     "service-worker.js": "/SmartLight/service-worker.js",
-    "static/css/main.1ee97827.chunk.css.map": "/SmartLight/static/css/main.1ee97827.chunk.css.map",
+    "static/css/main.3126e216.chunk.css.map": "/SmartLight/static/css/main.3126e216.chunk.css.map",
     "static/js/2.c13255e9.chunk.js.LICENSE": "/SmartLight/static/js/2.c13255e9.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.b211a061.js",
     "static/js/2.c13255e9.chunk.js",
-    "static/css/main.1ee97827.chunk.css",
+    "static/css/main.3126e216.chunk.css",
     "static/js/main.eb6d59bb.chunk.js"
   ]
 }

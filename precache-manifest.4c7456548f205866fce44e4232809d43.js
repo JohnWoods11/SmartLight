@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a220a9ab6b8bbc20a3731fda33b7301f",
+    "revision": "64c195d6bcc65f7fdaf106045c423d71",
     "url": "/SmartLight/index.html"
   },
   {
-    "revision": "4fb2b6f83d630179ca40",
-    "url": "/SmartLight/static/css/main.1ee97827.chunk.css"
+    "revision": "141c09b0a4c1cea20cd6",
+    "url": "/SmartLight/static/css/main.3126e216.chunk.css"
   },
   {
     "revision": "6e50ccb102538122cbf5",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SmartLight/static/js/2.c13255e9.chunk.js.LICENSE"
   },
   {
-    "revision": "4fb2b6f83d630179ca40",
+    "revision": "141c09b0a4c1cea20cd6",
     "url": "/SmartLight/static/js/main.eb6d59bb.chunk.js"
   },
   {
