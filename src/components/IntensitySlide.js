@@ -38,6 +38,7 @@ function IntensitySlide(props) {
   return (
     <div className={styles.input}>
       <input
+        className={styles.slide}
         name="luminosity"
         min="0"
         max="100"

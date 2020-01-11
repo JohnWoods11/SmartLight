@@ -1,4 +1,10 @@
+.selectionContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .selectionbox {
+  flex-grow: 1;
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -14,10 +20,6 @@
 
 .light {
   flex-grow: 1;
-  background-color: yellow;
-  border-radius: 1;
-  border-color: black;
-  border-style: solid;
   align-content: center;
   text-align: center;
 }

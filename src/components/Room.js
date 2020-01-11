@@ -6,7 +6,9 @@ import LightSwitch from "./LightSwitch";
 import Light from "./Light";
 import Themes from "./Themes";
 import ThemeInput from "./ThemeInput";
+import Clock from "./Clock";
 import styles from "./Room.module.css";
+import LightSelectBox from "./LightSelectBox";
 
 class Room extends React.Component {
   constructor(props) {
@@ -28,34 +30,55 @@ class Room extends React.Component {
     };
   }
 
+  addTheme(
+    name = [...this.state.theme_input_name],
+    isOn = [...this.state.is_on],
+    colours = [...this.state.colours],
+    intensity = [...this.state.intensity]
+  ) {
+    let theme = [];
+    let themeColours = colours;
+    let themeIsOn = isOn;
+    let themeIntensity = intensity;
+    let themeName = name;
+    theme.push(themeName);
+    theme.push(themeIsOn);
+    theme.push(themeColours);
+    theme.push(themeIntensity);
+    let s = JSON.stringify(theme);
+    return s;
+  }
+
   componentDidMount() {
     let loaded = localStorage.getItem("state");
-    console.log(loaded);
     if (loaded) {
       let new_state = JSON.parse(loaded);
       let new_themes = new_state.themes;
+      let newName = "Enter name here";
 
-      this.setState({ themes: new_themes });
+      this.setState({
+        themes: new_themes,
+        theme_input_name: newName
+      });
     } else {
-      this.setThemes();
-      console.log(`set ${this.state.is_on}`);
-      this.setDefault();
-      this.setThemes();
-      console.log(`set ${this.state.is_on}`);
-      let default_input = [...this.state.theme_input_name];
-      default_input = "Enter name here";
-      this.setState({ theme_input_name: default_input });
-      this.setLocalStorage();
-    }
-  }
+      let themes = [...this.state.themes];
+      let initialInputValue = [...this.state.theme_input_name];
+      themes.push(this.addTheme());
+      themes.push(
+        this.addTheme(
+          "Default",
+          [true, true, true, true, true, true],
+          this.state.colours,
+          this.state.intensity
+        )
+      );
+      initialInputValue = "Enter name here";
 
-  setDefault() {
-    let default_is_on = [...this.state.is_on];
-    default_is_on = [true, true, true, true, true, true];
-    let default_name = [...this.state.theme_input_name];
-    default_name = "Default";
-    this.setState({ is_on: default_is_on, theme_input_name: default_name });
-    console.log(this.state.is_on);
+      this.setState(
+        { themes: themes, theme_input_name: initialInputValue },
+        () => this.setLocalStorage()
+      );
+    }
   }
 
   renderLight(i) {
@@ -108,6 +131,22 @@ class Room extends React.Component {
     );
   }
 
+  renderLightSelectBox(i) {
+    return (
+      <LightSelectBox
+        id={i}
+        is_on={this.state.is_on[i]}
+        switchSlotClicked={() => {
+          this.slotClicked(i);
+        }}
+        color={this.state.colours[i]}
+        colorSlotChanged={item => {
+          this.slotChanged(item, i);
+        }}
+      />
+    );
+  }
+
   renderSelectionBox(i) {
     return (
       <div className={styles.selectionbox}>
@@ -150,6 +189,10 @@ class Room extends React.Component {
         />
       </div>
     );
+  }
+
+  renderClock() {
+    return <Clock />;
   }
 
   slotClicked(i) {
@@ -197,9 +240,7 @@ class Room extends React.Component {
     if (this.state.current_theme) {
       let themes = [...this.state.themes];
       themes.splice(this.state.current_theme, 1);
-      this.setState({ themes: themes });
-      console.log(this.state.current_theme);
-      this.setLocalStorage();
+      this.setState({ themes: themes }, () => this.setLocalStorage());
     } else {
       console.log(
         `this.state.current_theme is null ${this.state.current_theme}`
@@ -209,19 +250,13 @@ class Room extends React.Component {
 
   themeSelectSlotClicked(item) {
     this.setThemes(item);
-    this.setLocalStorage();
   }
 
   setThemes(item, name) {
     let themes = [...this.state.themes];
-    let theme = [];
-    theme.push(this.state.theme_input_name);
-    theme.push(this.state.is_on);
-    theme.push(this.state.colours);
-    theme.push(this.state.intensity);
-    let s = JSON.stringify(theme);
-    themes.push(s);
-    this.setState({ themes: themes });
+    themes.push(this.addTheme());
+    console.log(this.state.theme_input_name);
+    this.setState({ themes: themes }, () => this.setLocalStorage());
   }
 
   themeSelectSlotChanged(item) {
@@ -247,7 +282,7 @@ class Room extends React.Component {
         </div>
         <br />
         <br />
-        <div>
+        <div className={styles.selectionContainer}>
           {this.renderSelectionBox(0)}
           {this.renderSelectionBox(1)}
           {this.renderSelectionBox(2)}
@@ -259,6 +294,8 @@ class Room extends React.Component {
           {this.RenderThemeInput()}
           {this.renderThemes()}
         </div>
+        {this.renderClock()}
+        {this.renderLightSelectBox(1)}
       </div>
     );
   }
