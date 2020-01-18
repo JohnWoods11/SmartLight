@@ -1,0 +1,9 @@
+.schedule {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.scheduleElement {
+  flex-grow: 1;
+}

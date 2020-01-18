@@ -1,18 +1,19 @@
 .themeinput {
+  display: inline-flex;
   box-sizing: border-box;
-  display: flex;
   flex-direction: row;
-  width: 25%;
   border-style: solid;
   border-color: lightgreen;
   border-radius: 10%;
-  padding: 1%;
+  padding: 0.5%;
 }
 
 .inputbox {
+  flex-basis: 0;
   flex-grow: 3;
 }
 
 .button {
+  flex-basis: 0;
   flex-grow: 1;
 }

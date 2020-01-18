@@ -1,0 +1,20 @@
+.sun {
+  background-color: yellow;
+  border-radius: 50%;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.container {
+  background-color: black;
+  display: inline-flex;
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+}

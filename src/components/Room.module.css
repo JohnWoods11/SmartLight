@@ -3,6 +3,11 @@
   flex-direction: row;
 }
 
+.sunThemeContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .selectionbox {
   flex-grow: 1;
   float: left;

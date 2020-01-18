@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./Themes.module.css";
+import Schedule from "./Schedule";
 
 function Themes(props) {
   let handleChange = item => {
@@ -19,25 +20,6 @@ function Themes(props) {
     }
   };
 
-  //WHICH IS BETTER?
-
-  /*let makeList = () => {
-    let list = [];
-    props.themes.forEach(element => {
-      let theme = JSON.parse(element);
-      list.push(<option key={props.themes.legth}>{theme[0]}</option>);
-    });
-    return list;
-  };
-  let list;
-  list = (
-    <select className={styles.list} size="5" onChange={handleChange}>
-      {makeList()}
-    </select>
-  );
-
-  return list;*/
-
   const makeList = props.themes.map((
     theme,
     index //TODO remove index id assignment
@@ -49,10 +31,17 @@ function Themes(props) {
 
   let list = (
     <div className={styles.themes}>
-      <select className={styles.list} size="5" onChange={handleChange}>
-        {makeList}
-      </select>
-      <button onClick={handleClick}>Remove Theme</button>
+      <div className={styles.listContainer}>
+        <select className={styles.list} size="5" onChange={handleChange}>
+          {makeList}
+        </select>
+        <button onClick={handleClick}>Remove Theme</button>
+      </div>
+      <Schedule
+        startEmitChanged={props.startEmitChanged}
+        endEmitChanged={props.endEmitChanged}
+        emitClicked={props.scheduleEmitClicked}
+      />
     </div>
   );
   return list;

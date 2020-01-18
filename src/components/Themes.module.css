@@ -1,12 +1,18 @@
 .themes {
   box-sizing: border-box;
-  width: 25%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   border-style: solid;
   border-color: lightgreen;
   padding: 1%;
   border-radius: 5%;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .list {
