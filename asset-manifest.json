@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/SmartLight/static/css/main.33024368.chunk.css",
-    "main.js": "/SmartLight/static/js/main.bdcc7368.chunk.js",
-    "main.js.map": "/SmartLight/static/js/main.bdcc7368.chunk.js.map",
+    "main.css": "/SmartLight/static/css/main.0b934eab.chunk.css",
+    "main.js": "/SmartLight/static/js/main.dc88c5df.chunk.js",
+    "main.js.map": "/SmartLight/static/js/main.dc88c5df.chunk.js.map",
     "runtime-main.js": "/SmartLight/static/js/runtime-main.b211a061.js",
     "runtime-main.js.map": "/SmartLight/static/js/runtime-main.b211a061.js.map",
-    "static/js/2.e483776c.chunk.js": "/SmartLight/static/js/2.e483776c.chunk.js",
-    "static/js/2.e483776c.chunk.js.map": "/SmartLight/static/js/2.e483776c.chunk.js.map",
+    "static/js/2.7a35b820.chunk.js": "/SmartLight/static/js/2.7a35b820.chunk.js",
+    "static/js/2.7a35b820.chunk.js.map": "/SmartLight/static/js/2.7a35b820.chunk.js.map",
     "index.html": "/SmartLight/index.html",
-    "precache-manifest.b52b112cdf46f584451bfaef7f62f4d0.js": "/SmartLight/precache-manifest.b52b112cdf46f584451bfaef7f62f4d0.js",
+    "precache-manifest.374785b592908880a79457106a33fcdc.js": "/SmartLight/precache-manifest.374785b592908880a79457106a33fcdc.js",
     "service-worker.js": "/SmartLight/service-worker.js",
-    "static/css/main.33024368.chunk.css.map": "/SmartLight/static/css/main.33024368.chunk.css.map",
-    "static/js/2.e483776c.chunk.js.LICENSE": "/SmartLight/static/js/2.e483776c.chunk.js.LICENSE"
+    "static/css/main.0b934eab.chunk.css.map": "/SmartLight/static/css/main.0b934eab.chunk.css.map",
+    "static/js/2.7a35b820.chunk.js.LICENSE": "/SmartLight/static/js/2.7a35b820.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.b211a061.js",
-    "static/js/2.e483776c.chunk.js",
-    "static/css/main.33024368.chunk.css",
-    "static/js/main.bdcc7368.chunk.js"
+    "static/js/2.7a35b820.chunk.js",
+    "static/css/main.0b934eab.chunk.css",
+    "static/js/main.dc88c5df.chunk.js"
   ]
 }
