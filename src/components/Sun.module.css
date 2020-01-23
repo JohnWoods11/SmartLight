@@ -17,4 +17,33 @@
   width: 150px;
   height: 150px;
   margin-left: 100px;
+  color: white;
+}
+
+.container:after {
+  content: "after";
+}
+
+.container:before {
+  content: "before";
+}
+
+@media screen and (max-width: 1024px) {
+  .container:before {
+    content: "big before";
+  }
+
+  .container {
+    background-color: green;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container:before {
+    content: "small";
+  }
+
+  .container {
+    background-color: red;
+  }
 }

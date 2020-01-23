@@ -30,7 +30,8 @@ class Room extends React.Component {
       scheduleStart: null,
       scheduleEnd: null,
       currentHour: 0,
-      currentMin: 0
+      currentMin: 0,
+      sunIntensity: null
     };
   }
 
@@ -169,7 +170,14 @@ class Room extends React.Component {
   }
 
   renderSun() {
-    return <Sun hour={this.state.currentHour} />;
+    return (
+      <Sun
+        hour={this.state.currentHour}
+        emitChanged={item => {
+          this.sunSlotChanged(item);
+        }}
+      />
+    );
   }
 
   slotClicked(i) {
@@ -267,6 +275,10 @@ class Room extends React.Component {
 
   themeSelectSlotClicked(item) {
     this.setThemes(item);
+  }
+
+  sunSlotChanged(item) {
+    console.log(item);
   }
 
   simulateSlotClicked(item) {
